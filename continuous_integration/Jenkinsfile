@@ -22,7 +22,7 @@ pipeline {
 
         stage('checkout') {
             steps {
-                git branch: 'main' ,credentialsId: 'GIT_TOKEN' ,url: 'https://github.com/cbagade/jenkins-learnings.git'
+                git branch: 'main' ,credentialsId: 'GIT_TOKEN' ,url: 'https://github.com/devseri/jenrepo.git'
             }
         }
 
@@ -46,7 +46,7 @@ pipeline {
 
         stage('BuildDockerImage') {
             steps {
-                sh 'cd continuous_integration; docker build -t cbagade/cont-i-img:v4 .'
+                sh 'cd continuous_integration; docker build -t ankita292/cont-i-img:v4 .'
             }
         }
 
@@ -58,7 +58,7 @@ pipeline {
 
         stage('PushDockerImage') {
             steps {
-                sh 'cd continuous_integration; docker push cbagade/cont-i-img:v4'
+                sh 'cd continuous_integration; docker push ankita292/cont-i-img:v4'
             }
         }
     }
